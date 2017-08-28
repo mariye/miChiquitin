@@ -1,0 +1,44 @@
+#Para crear un nuevo proyecto en laravel especificando la version
+
+composer create-project --prefer-dist laravel/laravel blog "5.4.*"
+
+
+#Hashids es una libreria de laravel que brinda seguridad encriptando las rutas, ya que son visibles para los usuarios. Para instalar se usa el comando:
+
+composer require vinkla/hashids
+
+
+#Hashids requiere de la libreria bcmath, para instalar en ubuntu:
+
+sudo apt install php7.0-bcmath
+
+#Laravel Collective para manejar formularios
+
+
+
+
+
+
+# BD MYSQL
+
+#Para crear la BD por consola, acceder al bash de mysql:
+
+sudo mysql -u username
+
+#Crear la BD
+
+create database nombre;
+
+#Ver lista de BD
+
+show databases;
+
+#Crear nuevo usuario y darle permisos
+
+CREATE USER 'nombre_usuario'@'localhost' IDENTIFIED BY 'tu_contrasena';
+
+GRANT ALL PRIVILEGES ON * . * TO 'nombre_usuario'@'localhost';
+
+#salir
+
+exit
