@@ -1,23 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+    <div class="jumbotron">
+        <h1 class="display-3">Bienvenido </h1>
+        <p class="lead">Hola, {{Auth::user()->name}}, aqui podrás .......... .  </p>
+    </div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>Funcionalidad 1 </h4>
+            <p>Explicación 1</p>
 
-                    You are logged in!
-                </div>
-            </div>
+            <h4>Funcionalidad 2 </h4>
+            <p>Explicación 2</p>
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <h4>Funcionalidad 3</h4>
+            <p>Explicación 3</p>
+
+            <h4>Funcionlidad 4</h4>
+            <p>Explicación 4</p>
         </div>
     </div>
-</div>
+
+
+
+
+
+
+
+    </div> <!-- /container -->
+
+
+
+
 @endsection

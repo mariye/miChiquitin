@@ -32,7 +32,7 @@
         <div class="page-header-inner container">
             <div class="logo-app">
                 <a href="#">
-                    <img src="{{ asset('assets/img/logo-chiqutin-2.png') }}" alt="logo" width="160" height="30">
+                    <img src="{{ asset('assets/img/chiquitin.png') }}" alt="logo" width="160" height="30">
                 </a>
                 <div class="menu-toggler sidebar-toggler"><span></span></div>
             </div>
@@ -88,8 +88,8 @@
 
         <div class="page-footer">
             <div class="container">
-                    <span class="page-footer-inner"> 2017 © Proyecto Menta -
-                        <a target="_blank" href="#">Soluciones DyS</a>
+                    <span class="page-footer-inner"> 2017 © Proyecto Ingeneria Software III -
+                        <a target="_blank" href="#">Mi Chiquitin</a>
                     </span>
             </div>
         </div>
@@ -111,7 +111,6 @@
 <!-- Script Español Select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/i18n/es.js"></script>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB7Tce0Xd3GEb838FF5uRcIe8MQIRdQSo&sensor=false"></script>
 @yield('jsAdicional')
 </body>
 </html>
