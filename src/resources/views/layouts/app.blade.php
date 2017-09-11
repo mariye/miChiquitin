@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,73 +8,110 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Soluciones dys') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/dp3.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/componentes.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/theme-dark.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+<body class="page-content-white page-header-fixed ">
+<div class="hide" id="urlAct">{{ url('/') }}</div>
+<div class="page-wrapper">
+    <div class="page-header navbar navbar-fixed-top">
+        <div class="page-header-inner container">
+            <div class="logo-app">
+                <a href="#">
+                    <img src="{{ asset('assets/img/logo-chiqutin-2.png') }}" alt="logo" width="160" height="30">
+                </a>
+                <div class="menu-toggler sidebar-toggler"><span></span></div>
+            </div>
+            <a href="javascript:;" class="menu-toggler responsive-toggler"
+               data-toggle="collapse" data-target=".navbar-collapse">
+                <span></span>
+            </a>
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+                           data-hover="dropdown" data-close-others="true">
+                            <span class="username username-hide-on-mobile"> {{ Auth::user()->name }} </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('fLogout').submit();">
+                                    <i class="fa fa-power-off"></i> Cerrar Sesión
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
+                                <form id="fLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
-                        @endif
-                    </ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    <div class="container">
+        <div class="page-container">
+            @include('layouts.sidemenu')
+
+            <div class="page-content-wrapper">
+                <div class="page-content" style="min-height:1049px;">
+                    <div class="page-bar">
+                        <h2 class="page-title"> @yield('titulo')
+                            @yield('btnAccion')
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" >
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        @yield('content')
+        <div class="page-footer">
+            <div class="container">
+                    <span class="page-footer-inner"> 2017 © Proyecto Menta -
+                        <a target="_blank" href="#">Soluciones DyS</a>
+                    </span>
+            </div>
+        </div>
+
     </div>
+</div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+
+
+<!-- Scripts -->
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/dp.min.js') }}"></script>
+<script src="{{ asset('assets/js/dp-es.js') }}"></script>
+<script src="{{ asset('assets/js/bootbox.min.js') }}"></script>
+<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/js/select2.min.js') }}"></script>
+<script src="{{ asset('assets/js/layout.js') }}"></script>
+<!-- Script Español Select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/i18n/es.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB7Tce0Xd3GEb838FF5uRcIe8MQIRdQSo&sensor=false"></script>
+@yield('jsAdicional')
 </body>
 </html>

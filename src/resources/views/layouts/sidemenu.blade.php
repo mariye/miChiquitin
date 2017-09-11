@@ -7,14 +7,14 @@
                 <h3 class="uppercase">Menú Principal</h3>
             </li>
 
-            <li class="nav-item contabilidad">
+            <li class="nav-item active">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-cogs"></i>
                     <span class="title">CONTABILIDAD</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu" style="display: none;">
-                    <li class="nav-item balance">
+                    <li class="nav-item active">
                         <a href="#" class="nav-link ">
                             <i class="fa fa-cogs"></i>
                             <span class="title">Balance</span>
