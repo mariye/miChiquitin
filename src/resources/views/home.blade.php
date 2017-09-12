@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo')
+    Pagina Principal
+    @endsection
+
 @section('content')
     <div class="jumbotron">
         <h1 class="display-3">Bienvenido </h1>
@@ -25,16 +29,5 @@
             <p>Explicación 4</p>
         </div>
     </div>
-
-
-
-
-
-
-
-    </div> <!-- /container -->
-
-
-
 
 @endsection
